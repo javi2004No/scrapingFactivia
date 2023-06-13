@@ -10,3 +10,4 @@ namespace scrapingFactivia.Structures
         public List<Content> content { get; set; }
     }
 }
+// hello
