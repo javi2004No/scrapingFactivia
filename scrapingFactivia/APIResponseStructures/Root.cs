@@ -8,7 +8,7 @@ namespace scrapingFactivia.Structures
     {
         public Links links { get; set; }
         public Meta meta { get; set; }
-        public List<Datum> data { get; set; }
+        public List<Data> data { get; set; }
         public List<Included> included { get; set; }
     }
 }
