@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace scrapingFactivia
 {
@@ -85,7 +86,8 @@ namespace scrapingFactivia
             {
                 Console.WriteLine("Type what you wish to search:");
                 string searchTerm = Console.ReadLine();
-                //Remeber to change string
+                searchTerm = WebUtility.HtmlEncode(searchTerm);
+                searchTerm = searchTerm.Replace(" ", "%20");
                 FactaviaAPICall.APICall aPICall = new FactaviaAPICall.APICall();
                 Task<Structures.Root> root = aPICall.Search(searchTerm, sToken);
                 Structures.Root root2 = root.Result;
@@ -111,6 +113,13 @@ namespace scrapingFactivia
                     }
                     ExcelOutput.WriteToExcel write = new ExcelOutput.WriteToExcel();
                     write.createExcel(excelStructures, name, answer);
+                    Console.WriteLine("Export successfull");
+                    Console.WriteLine("Do you wish to do another search?");
+                    answer= Console.ReadLine();
+                    if (answer == "n" || answer == "N")
+                    {
+                        on = false;
+                    }
                 }
                 else
                 {
