@@ -19,7 +19,7 @@ namespace scrapingFactivia.FactaviaAPICall
         {
             APIResponseStructures.TokenV1 token = null;
 
-            var options = new RestClientOptions("https://snapshot-factiva-com.libproxy.mit.edu")
+            var options = new RestClientOptions("https://accounts.dowjones.com/oauth2/v1/token")
             {
                 MaxTimeout = -1,
             };
@@ -39,6 +39,8 @@ namespace scrapingFactivia.FactaviaAPICall
             request.AddParameter("grant_type", "password");
 
             request.AddParameter("connection", "service-account");
+
+            request.AddParameter("Content-type", "application/json");
 
             RestResponse aPIResponse = await client.ExecuteAsync(request);
 
@@ -61,7 +63,7 @@ namespace scrapingFactivia.FactaviaAPICall
         {
             APIResponseStructures.TokenV2 token = null;
 
-            var options = new RestClientOptions("https://snapshot-factiva-com.libproxy.mit.edu")
+            var options = new RestClientOptions("https://accounts.dowjones.com/oauth2/v1/token")
             {
                 MaxTimeout = -1,
             };
