@@ -14,7 +14,7 @@ namespace scrapingFactivia.FactaviaAPICall
         {
             Structures.Root response = null;
 
-            var options = new RestClientOptions("https://api.dowjones.com")
+            var options = new RestClientOptions("https://snapshot-factiva-com.libproxy.mit.edu")
             {
                 MaxTimeout = -1,
             };
