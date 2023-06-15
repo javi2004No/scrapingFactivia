@@ -7,7 +7,7 @@ namespace scrapingFactivia.ExcelOutput
 {
     internal class WriteToExcel
     {
-        public void createExcel(List<ExcelStructure> excelStructures, string name)
+        public void createExcel(List<ExcelStructure> excelStructures, string name, string path)
         {
             WorkBook workBook = WorkBook.Create();
             WorkSheet sheet = workBook.CreateWorkSheet(name);
@@ -29,7 +29,7 @@ namespace scrapingFactivia.ExcelOutput
                 }
                 i++;
             }
-            workBook.SaveAs("D:\\ExcelOutputs\\" + name + ".xlsx");
+            workBook.SaveAs(path + name + ".xlsx");
         }
 
         private string getAddressLetter(int addressNumber)
